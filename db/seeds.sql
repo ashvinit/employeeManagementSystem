@@ -27,19 +27,19 @@ INSERT INTO role (title, salary, department_id) VALUES ('Lawyer', 120000, 4);
 
 
 --EMPLOYEE--
-INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Michael', 'Scott', 2);
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Michael', 'Scott', 2);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Dwight', 'Schrute', 1, 1);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Pam', 'Beasley', 3);
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Pam', 'Beasley', 3);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Jim', 'Halpert', 4, 3);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Angela', 'Martin', 5);
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Angela', 'Martin', 5);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Andy', 'Bernard', 6, 5);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Ryan', 'Howard', 8);
+INSERT INTO employee (first_name, last_name, role_id) VALUES ('Ryan', 'Howard', 8);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('Kelly', 'Kapoor', 7, 7);
 
