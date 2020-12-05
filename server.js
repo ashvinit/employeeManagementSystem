@@ -1,7 +1,7 @@
 //packages required
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
-const db = require("./config/./db.js");
+const db = require("./config/orm");
 require("console.table");
 
 init ();
