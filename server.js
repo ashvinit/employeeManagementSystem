@@ -1,7 +1,7 @@
 //packages required
 const { prompt } = require("inquirer");
 const logo = require("asciiart-logo");
-const db = require("./db");
+const db = require("./");
 require("console.table");
 
 init ();
@@ -113,5 +113,15 @@ async function loadMainPrompts() {
             return removeDepartment();
         case "QUIT":
             return quit();
-    }
+    };
+}
+
+//function to view employees
+async function viewEmployees() {
+    const employees = await db.findAllEmployees();
+
+    console.log("\n");
+    console.table(employees);
+
+    loadMainPrompts();
 }
