@@ -1,5 +1,5 @@
 //Import MySQL connection
-const connection = require("./connection.js");
+const connection = require("./connection");
 
 class DB {
     //Keeping a refernce to the connection on the class in case we need it later
@@ -12,3 +12,5 @@ class DB {
         return this.connection.query();
     }
 }
+
+module.exports = new DB(connection);
