@@ -31,6 +31,16 @@ class DB {
             departmentId
         );
     }
+
+    findAllRoles() {
+        return this.connection.query(
+            //select the following columns:
+            //id, title, salary from role table
+            //name from department table
+            //left join to join role and department tables
+            "SELECT role.id, role.title, role.salary, department.name FROM role LEFT JOIN department ON department.id = role.department_id;"
+        )
+    }
 }
 
 module.exports = new DB(connection);
