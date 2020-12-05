@@ -18,6 +18,12 @@ class DB {
             "SELECT employee.id, employee.first_name, employee.last_name, department.name, role.salary FROM employee LEFT JOIN role ON role.id = employee.role_id LEFT JOIN department ON department.id = role.department_id;"            
         );
     }
+
+    findAllDepartments() {
+        return this.connection.query(
+            "SELECT department.id, department.name, SUM(role.salary) AS utilized_budget FROM department LEFT JOIN role ON role.department_id = department.id LEFT JOIN employee ON employee.role_id = role.id GROUP BY department.id, department.name"
+        )
+    }
 }
 
 module.exports = new DB(connection);
