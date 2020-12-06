@@ -41,6 +41,13 @@ class DB {
             "SELECT role.id, role.title, role.salary, department.name FROM role LEFT JOIN department ON department.id = role.department_id;"
         )
     }
+
+    updateEmployeeRole(employeeId, roleId) {
+        return this.connection.query(
+            "UPDATE employee SET role_id = ? WHERE id = ?",
+            [roleId, employeeId]
+        );
+    }
 }
 
 module.exports = new DB(connection);
