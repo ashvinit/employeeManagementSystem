@@ -205,6 +205,7 @@ async function viewRoles() {
     loadMainPrompts();
 }
 
+//function to create a new role
 async function addRole() {
     const departments = await db.findAllDepartments();
 
@@ -237,6 +238,7 @@ async function addRole() {
     loadMainPrompts();
 }
 
+//function to view departments
 async function viewDepartments() {
     const departments = await db.findAllDepartments();
 
