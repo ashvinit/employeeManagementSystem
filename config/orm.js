@@ -63,6 +63,13 @@ class DB {
         );
     };
 
+    cerateEmployee(employee) {
+        return this.connection.query(
+            "INSERT INTO employee SET ?",
+            employee
+        );
+    };
+
 }
 
 module.exports = new DB(connection);
