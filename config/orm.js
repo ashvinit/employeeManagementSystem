@@ -48,6 +48,14 @@ class DB {
             [roleId, employeeId]
         );
     }
+
+    createRole(role) {
+        return this.connection.query(
+            "INSERT INTO role SET ?",
+            role
+        );
+    };
+    
 }
 
 module.exports = new DB(connection);
