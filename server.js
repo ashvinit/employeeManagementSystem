@@ -319,6 +319,11 @@ async function addEmployee() {
     loadMainPrompts();
 };
 
+function quit() {
+    console.log("Goodbye and have a splendid day!");
+    process.exit();
+};
+
 
 
 

@@ -63,7 +63,7 @@ class DB {
         );
     };
 
-    cerateEmployee(employee) {
+    createEmployee(employee) {
         return this.connection.query(
             "INSERT INTO employee SET ?",
             employee
