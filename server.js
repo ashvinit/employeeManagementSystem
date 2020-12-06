@@ -237,5 +237,14 @@ async function addRole() {
     loadMainPrompts();
 }
 
+async function viewDepartments() {
+    const departments = await db.findAllDepartments();
+
+    console.log("\n");
+    console.table(departments);
+
+    loadMainPrompts();
+}
+
 
 
