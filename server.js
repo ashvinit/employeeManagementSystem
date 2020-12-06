@@ -158,8 +158,8 @@ async function viewEmployeesByDepartment() {
 async function viewEmployeesByManager() {
     const managers = await db.findAllManagers();
 
-    const managerChoices = managers.map(({ id, name }) => ({
-        name: name,
+    const managerChoices = managers.map(({ id, first_name, last_name }) => ({
+        name: first_name + " " + last_name,
         value: id
     }));
 

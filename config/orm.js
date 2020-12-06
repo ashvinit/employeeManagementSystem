@@ -69,6 +69,12 @@ class DB {
             employee
         );
     };
+    
+    findAllManagers() {
+        return this.connection.query(
+            "SELECT employee.first_name, employee.last_name, employee.id FROM employee WHERE employee.manager_id IS NULL"
+        );
+    };
 
 }
 
