@@ -195,5 +195,15 @@ async function updateEmployeeRole() {
     loadMainPrompts();
 }
 
+//function to view roles
+async function viewRoles() {
+    const roles = await db.findAllRoles();
+
+    console.log("\n");
+    console.table(roles);
+
+    loadMainPrompts();
+}
+
 
 
