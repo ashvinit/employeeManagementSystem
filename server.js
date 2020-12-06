@@ -248,5 +248,21 @@ async function viewDepartments() {
     loadMainPrompts();
 }
 
+//function to add a new department
+async function addDepartment() {
+    const department = await prompt([
+        {
+            name: "name",
+            message: "What is the name of the department?"
+        }
+    ]);
+
+    await db.createDepartment(department);
+
+    console.log(`Added ${department.name} to database`);
+
+    loadMainPrompts();
+}
+
 
 
