@@ -345,6 +345,34 @@ async function addEmployee() {
     loadMainPrompts();
 };
 
+async function removeEmployee() {
+    const employees = await db.findAllEmployees();
+
+    const employeeChoices = employees.map(({ id, first_name, last_name }) => ({
+        name: first_name + " " + last_name,
+        value: id
+    }));
+
+    const { employeeId } = await prompt([
+        {
+            type: "list",
+            name: "employeeId",
+            message: "Which employee would you like to remove?",
+            choices: employeeChoices
+        }
+    ])
+
+    employeeChoices.id = employeeId;
+
+    await db.deleteEmployee(employeeId);
+
+    console.log(
+        `Employee has been deleted from the database`
+    );
+
+    loadMainPrompts();
+}
+
 function quit() {
     console.log("Goodbye and have a splendid day!");
     process.exit();
