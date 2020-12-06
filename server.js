@@ -154,6 +154,32 @@ async function viewEmployeesByDepartment() {
         
 };
 
+//function to view employees by manager
+async function viewEmployeesByManager() {
+    const managers = await db.findAllManagers();
+
+    const managerChoices = managers.map(({ id, name }) => ({
+        name: name,
+        value: id
+    }));
+
+    const { managerId } = await prompt([
+        {
+            type: "list",
+            name: "managerId",
+            message: "Which manager would you like to see employees for?",
+            choices: managerChoices
+        }
+    ]);
+
+    const employees = await db.findAllEmployeesByManager(managerId);
+
+    console.log("\n");
+    console.table(employees);
+
+    loadMainPrompts();
+}
+
 async function updateEmployeeRole() {
     const employees = await db.findAllEmployees();
 
