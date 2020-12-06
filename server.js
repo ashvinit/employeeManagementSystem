@@ -114,7 +114,7 @@ async function loadMainPrompts() {
         case "QUIT":
             return quit();
     };
-}
+};
 
 //function to view employees
 async function viewEmployees() {
@@ -124,7 +124,7 @@ async function viewEmployees() {
     console.table(employees);
 
     loadMainPrompts();
-}
+};
 
 //function to view employees by department
 async function viewEmployeesByDepartment() {
@@ -152,7 +152,7 @@ async function viewEmployeesByDepartment() {
 
     loadMainPrompts();
         
-}
+};
 
 async function updateEmployeeRole() {
     const employees = await db.findAllEmployees();
@@ -193,7 +193,7 @@ async function updateEmployeeRole() {
     console.log("Update employee's role");
     
     loadMainPrompts();
-}
+};
 
 //function to view roles
 async function viewRoles() {
@@ -203,7 +203,7 @@ async function viewRoles() {
     console.table(roles);
 
     loadMainPrompts();
-}
+};
 
 //function to create a new role
 async function addRole() {
@@ -236,7 +236,7 @@ async function addRole() {
     console.log(`Added ${role.title} to the database`);
 
     loadMainPrompts();
-}
+};
 
 //function to view departments
 async function viewDepartments() {
@@ -246,7 +246,7 @@ async function viewDepartments() {
     console.table(departments);
 
     loadMainPrompts();
-}
+};
 
 //function to add a new department
 async function addDepartment() {
@@ -262,7 +262,7 @@ async function addDepartment() {
     console.log(`Added ${department.name} to database`);
 
     loadMainPrompts();
-}
+};
 
 
 
