@@ -78,7 +78,7 @@ class DB {
 
     findAllEmployeesByManager( managerId ) {
         return this.connection.query(
-            "SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE manager_id = ?",
+            "SELECT CONCAT (employee.first_name, ' ', employee.last_name) AS employees FROM employee WHERE manager_id = ?",
             managerId
         );
     };
