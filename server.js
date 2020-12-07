@@ -373,6 +373,36 @@ async function removeEmployee() {
     loadMainPrompts();
 }
 
+async function removeRole() {
+    const roles = await db.findAllRoles();
+
+    const roleChoices = roles.map(({ id, title}) => ({
+        name: title,
+        value: id
+    }));
+
+    const { roleId } = await prompt ([
+        {
+            type: "list",
+            name: "roleId",
+            message: "Which role would you like to remove?",
+            choices: roleChoices
+        }
+    ]);
+
+    roleChoices.id = roleId;
+
+    await db.deleteRole(roleId);
+
+    console.log(
+        `Role has been deleted from the database`
+    );
+
+    loadMainPrompts();
+
+
+}
+
 function quit() {
     console.log("Goodbye and have a splendid day!");
     process.exit();
