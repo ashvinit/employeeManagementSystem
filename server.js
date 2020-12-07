@@ -404,7 +404,36 @@ async function removeRole() {
 
     loadMainPrompts();
 
+};
 
+async function removeDepartment () {
+    const departments = await db.findAllDepartments();
+    
+    const departmentChoices = departments.map(({ id, name }) => ({
+        name: name,
+        value: id
+    }));
+
+    const { departmentId } = await prompt ([
+        {
+            type: "list",
+            name: "departmentId",
+            message: "Which department would you like to remove?",
+            choices: departmentChoices
+        }
+    ]);
+
+    departmentChoices.id = departmentId;
+
+    await db.deleteDepartment(departmentId);
+
+    console.log(
+        `Department has been successfully removed.`
+    );
+
+    console.table(departments);
+
+    loadMainPrompts();
 }
 
 function quit() {
