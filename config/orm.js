@@ -19,12 +19,14 @@ class DB {
         );
     };
 
+    //find all the departments and list them out to show the id, department name, the sum of the salaries of the employees working in that department
     findAllDepartments() {
         return this.connection.query(
             "SELECT department.id, department.name, SUM(role.salary) AS utilized_budget FROM department LEFT JOIN role ON role.department_id = department.id LEFT JOIN employee ON employee.role_id = role.id GROUP BY department.id, department.name"
         );
     };
 
+    //defined function to find all employees by department with departmentId passed into it
     findAllEmployeesByDepartment(departmentId) {
         return this.connection.query(
             "SELECT employee.id, employee.first_name, employee.last_name, role.title FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id WHERE department.id = ?;",
