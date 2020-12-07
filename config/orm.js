@@ -90,6 +90,13 @@ class DB {
         );
     };
 
+    deleteRole (roleId) {
+        return this.connection.query(
+            "DELETE FROM role WHERE id = ?",
+            roleId
+        );
+    };
+
 
 
 }
