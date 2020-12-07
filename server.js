@@ -118,11 +118,12 @@ async function loadMainPrompts() {
 
 //function to view employees
 async function viewEmployees() {
+    //created function to find all employees..function will be defined in orm.js
     const employees = await db.findAllEmployees();
-
+    //list out and show employees in a table
     console.log("\n");
     console.table(employees);
-
+    //load the main prompts for the user to choose from
     loadMainPrompts();
 };
 
