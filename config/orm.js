@@ -97,6 +97,13 @@ class DB {
         );
     };
 
+    deleteDepartment (departmentId) {
+        return this.connection.query(
+            "DELETE FROM department WHERE id = ?",
+            departmentId
+        );
+    };
+
 
 
 }

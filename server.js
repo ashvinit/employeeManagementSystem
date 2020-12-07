@@ -370,8 +370,6 @@ async function removeEmployee() {
         `Employee has been deleted from the database`
     );
 
-    console.table(employees);
-
     loadMainPrompts();
 }
 
@@ -400,14 +398,12 @@ async function removeRole() {
         `Role has been deleted from the database`
     );
 
-    console.table(roles);
-
     loadMainPrompts();
 
 };
 
 async function removeDepartment () {
-    const departments = await db.findAllDepartments();
+    var departments = await db.findAllDepartments();
     
     const departmentChoices = departments.map(({ id, name }) => ({
         name: name,
@@ -430,8 +426,6 @@ async function removeDepartment () {
     console.log(
         `Department has been successfully removed.`
     );
-
-    console.table(departments);
 
     loadMainPrompts();
 }
