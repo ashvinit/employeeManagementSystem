@@ -131,7 +131,7 @@ async function viewEmployees() {
 async function viewEmployeesByDepartment() {
     //find all the departments and list them out
     const departments = await db.findAllDepartments();
-    //the object for each department will return to map() to construct and array to be returned and stored to departmentChoices
+    //the object for each department will return to map() to construct an array to be returned and stored to departmentChoices
     const departmentChoices = departments.map(({ id, name }) => ({
         //create two properties: name and value for this object
         name: name,
@@ -158,13 +158,14 @@ async function viewEmployeesByDepartment() {
 
 //function to view employees by manager
 async function viewEmployeesByManager() {
+    //run function to find all managers
     const managers = await db.findAllManagers();
-
+    //return the full name of the manager and if to map() to construct array
     const managerChoices = managers.map(({ id, first_name, last_name }) => ({
         name: first_name + " " + last_name,
         value: id
     }));
-
+    //prompt to choose manager and store the id in managerId
     const { managerId } = await prompt([
         {
             type: "list",
@@ -173,9 +174,9 @@ async function viewEmployeesByManager() {
             choices: managerChoices
         }
     ]);
-
+    //calling function to find all employees by manager by using the manager id
     const employees = await db.findAllEmployeesByManager(managerId);
-
+    //display table
     console.log("\n");
     console.table(employees);
 

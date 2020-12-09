@@ -10,5 +10,5 @@ This interface allows business owners to view and manage their departments, role
 
 4. Created initial function and prompts to start the program.
 
-4. Went through each option given to the user and created a function with select statements to allow the user to perform the task they requested. 
+5. Went through each option given to the user and created a function with select statements to allow the user to perform the task they requested. 
 
