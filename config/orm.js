@@ -34,6 +34,7 @@ class DB {
         );
     };
 
+    //function to find all roles
     findAllRoles() {
         return this.connection.query(
             //select the following columns:
@@ -44,6 +45,7 @@ class DB {
         );
     };
 
+    //function to update employee role
     updateEmployeeRole(employeeId, roleId) {
         return this.connection.query(
             "UPDATE employee SET role_id = ? WHERE id = ?",
@@ -51,6 +53,7 @@ class DB {
         );
     };
 
+    //function to create a new role and insert it into role table
     createRole(role) {
         return this.connection.query(
             "INSERT INTO role SET ?",
@@ -58,6 +61,7 @@ class DB {
         );
     };
 
+    //function to create a new department and insert into department table
     createDepartment(department) {
         return this.connection.query(
             "INSERT INTO department SET ?",
@@ -65,6 +69,7 @@ class DB {
         );
     };
 
+    //function to create a new employee and insert into employee table
     createEmployee(employee) {
         return this.connection.query(
             "INSERT INTO employee SET ?",
@@ -72,12 +77,14 @@ class DB {
         );
     };
     
+    //function to find all managers
     findAllManagers() {
         return this.connection.query(
             "SELECT employee.first_name, employee.last_name, employee.id FROM employee WHERE employee.manager_id IS NULL"
         );
     };
 
+    //function to find employees for a certain manager using the managerId provided by the user via prompts
     findAllEmployeesByManager( managerId ) {
         return this.connection.query(
             "SELECT CONCAT (employee.first_name, ' ', employee.last_name) AS employees FROM employee WHERE manager_id = ?",
@@ -85,6 +92,7 @@ class DB {
         );
     };
 
+    //function to delete employee
     deleteEmployee (employeeId) {
         return this.connection.query(
             "DELETE FROM employee WHERE id = ?",
@@ -92,6 +100,7 @@ class DB {
         );
     };
 
+    //function to delete a role
     deleteRole (roleId) {
         return this.connection.query(
             "DELETE FROM role WHERE id = ?",
@@ -99,15 +108,13 @@ class DB {
         );
     };
 
+    //function to delete a department
     deleteDepartment (departmentId) {
         return this.connection.query(
             "DELETE FROM department WHERE id = ?",
             departmentId
         );
     };
-
-
-
 }
 
 module.exports = new DB(connection);
